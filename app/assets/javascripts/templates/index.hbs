@@ -1,12 +1,12 @@
 <div>
-  {{controller}}
+  {{!controller}}
   <p>{{timezone}}</p>
   <p>Date: {{sched_date}}</p>
 </div>
 <hr/>
 {{view Em.Select contentBinding='App.tz_options' valueBinding='controller.content.timezone'}}
 {{view App.DatePickerField  valueBinding='controller.content.sched_date'}}
-<hr/><button {{action rdrItem}}>Search</button>
+
 {{outlet}}
 <hr/>
 {{render 'business_day'}}
