@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      Sidebar
+      {{outlet 'sidebar'}}
+    </div>
+    <div class="span10">
+      <div id='app_container'>
+        {{controller}}
+        Main
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+</div>
