@@ -1,6 +1,7 @@
 #= require ./vendor/jquery
 #= require ./vendor/handlebars
 #= require ./vendor/ember
+#= require ./vendor/datepicker
 #= require ./app/environment
 #= require ./app/store
 #= require ./app/router

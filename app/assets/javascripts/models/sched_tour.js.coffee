@@ -1,6 +1,6 @@
 App.SchedTour = Em.Object.extend
   timezone: "Eastern Time (US & Canada)"
-  scheddate: null
+  sched_date: null
   productline: null
   rep_username: null
   notify: "Product Specialist"
