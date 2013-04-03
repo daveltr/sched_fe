@@ -6,7 +6,18 @@
 <hr/>
 {{view Em.Select contentBinding='App.tz_options' valueBinding='controller.content.timezone'}}
 {{view App.DatePickerField  valueBinding='controller.content.sched_date'}}
-
-{{outlet}}
 <hr/>
-{{render 'business_day'}}
+{{outlet}}
+<div class = "row-fluid">
+  <div class="span3">
+    spn
+  </div>
+  <div class="span3">
+    {{view App.AccountView contentBinding="account"}}
+  </div>
+  <div class="span3">
+    <div>
+      {{render 'business_day'}}
+    </div>
+  </div>
+</div>

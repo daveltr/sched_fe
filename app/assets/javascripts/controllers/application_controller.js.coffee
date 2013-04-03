@@ -10,5 +10,5 @@ App.BusinessDayController = Em.ObjectController.extend
   event_date: ( -> 
     v=@.get('controllers.index.content.sched_date')
     console?.log("changed ev date:#{v}")
-    return v.toUTCString()
+    return moment.utc(v).format("YYYY-MM-DD")
   ).property('controllers.index.content.sched_date')
