@@ -11,3 +11,8 @@ class App < Sinatra::Base
   
 end
 
+#= require ./vendor/jquery
+#= require ./vendor/handlebars
+#= require ./vendor/ember
+#= require ./vendor/datepicker
+#= require ./vendor/moment
