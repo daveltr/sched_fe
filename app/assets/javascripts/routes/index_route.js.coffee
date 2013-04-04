@@ -3,11 +3,15 @@ App.IndexRoute = Em.Route.extend
     console?.log("index route entered") 
   model: ->
     #get params
-    App.SchedTour.create()
-  setupController: (controller) ->
+    sct = App.SchedTour.create()
+    sct.set('account', App.Account.create() )
+    sct
+
+  # setupController: (controller) ->
+
     #get params
-    controller.account = App.Account.create()
-    controller.business_day = App.BusinessDay.create({event_date: moment.utc()})
+    # controller.account = App.Account.create()
+    # controller.business_day = App.BusinessDay.create({event_date: moment.utc()})
   # events:
   #   rdrItem: ->
   #     console?.log('rdr route')

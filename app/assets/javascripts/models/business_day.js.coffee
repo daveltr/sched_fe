@@ -1,6 +1,7 @@
 App.BusinessDay = Em.Object.extend
   appointments: []
   time_slots: []
+  event_date: null
 
 App.Account = Em.Object.extend
   name: "daveCo"
