@@ -1,11 +1,11 @@
 <div>
   {{!controller}}
   <p>{{timezone}}</p>
-  <p>Date: {{sched_date}}</p>
+  <p>Date: {{event_date}}</p>
 </div>
 <hr/>
 {{view Em.Select contentBinding='App.tz_options' valueBinding='controller.content.timezone'}}
-{{view App.DatePickerField  valueBinding='controller.content.sched_date'}}
+{{view App.DatePickerField  valueBinding='event_date'}}
 <hr/>
 {{outlet}}
 <div class = "row-fluid">
@@ -17,7 +17,8 @@
   </div>
   <div class="span3">
     <div>
-      {{render 'business_day'}}
+      {{view App.BusinessDayView }}
+      {{!render 'business_day' business_day event_dateBinding='event_date' }}
     </div>
   </div>
 </div>

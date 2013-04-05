@@ -1,6 +1,12 @@
 <div>
   {{!controller}}
   <h5>Business Day</h5>
-  {{!event_date}}
-  {{content.event_date}}
+  {{event_date}}
+  {{content}}
+  {{content.business_day.time_slots}}
+  {{#each item in content.business_day.ts}}
+    <ul>
+      <li>{{item.key}}</li>
+    </ul>
+  {{/each}}
 </div>

@@ -9,14 +9,12 @@ App.IndexController = Ember.ObjectController.extend
 # 
 App.BusinessDayController = Em.ObjectController.extend
   needs: ['index']
-  content: {}
-  business_day: ( ->
-    bd = App.BusinessDay.create({event_date: @.get('event_date')})
-    @.set('content',bd) 
-    bd
-    ).property('event_date')
+  content: []
+  # event_dateBinding: 'controllers.index.content.event_date'
   # contentBinding: 'controllers.index.content.business_day'
-  event_dateBinding: 'controllers.index.content.sched_date'
+
+
+  # event_dateBinding: 'controllers.index.content.sched_date'
 
   #  # null
   # event_date: ( -> 
@@ -24,3 +22,10 @@ App.BusinessDayController = Em.ObjectController.extend
   #   console?.log("changed ev date:#{v}")
   #   return moment.utc(v).format("YYYY-MM-DD")
   # ).property('controllers.index.content.sched_date')
+
+  # business_day: ( ->
+  #   bd = App.BusinessDay.create()
+  #   @.set('content',bd) 
+  #   bd
+  #   ).property('event_date')
+  # contentBinding: 'controllers.index.content.business_day'
