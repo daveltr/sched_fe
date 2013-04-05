@@ -1,7 +1,7 @@
 App.BusinessDay = Em.Object.extend
   appointments: []
   time_slots: []
-
+  isLoaded: false
 
 App.BusinessDay.reopenClass
   find: (event_date) ->
@@ -14,14 +14,21 @@ App.BusinessDay.reopenClass
     ).then( (response) ->
       bd.setProperties(response) #App.BusinessDay.create(response) 
       ).then( (bd) ->
-        bd.set('ts', Em.A() )
-        console?.log(bd.time_slots)
-        # bd.time_slots.forEach (sl) ->
-        for k,v of bd.time_slots 
-          bd.ts.push App.TimeSlot.create({key: k, data: v})
+        bd.set('ts', Em.A() )#App.SortedArray() )
+        slots = Em.A()
+        for k,v of bd.time_slots
+          console?.log(k)
+          slots.push App.TimeSlot.create({key: k, data: v})
+        slots.sort (a,b) ->
+          console?.log("#{a.key} vs #{b.key}")
+          return parseInt(a.key) - parseInt(b.key) 
+          # return a.key>b.key? 1 : (a.key<b.key ? -1 : 0); 
+        bd.set('ts',slots)
+        bd.set('isLoaded',true) 
         return bd
       )
     return bd
+
 
 App.Account = Em.Object.extend
   name: "daveCo"

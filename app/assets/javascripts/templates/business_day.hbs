@@ -1,12 +1,12 @@
 <div>
-  {{!controller}}
-  <h5>Business Day</h5>
-  {{event_date}}
-  {{content}}
-  {{content.business_day.time_slots}}
-  {{#each item in content.business_day.ts}}
-    <ul>
-      <li>{{item.key}}</li>
-    </ul>
-  {{/each}}
+  <h5>Business Day {{event_date}}</h5>
+  {{#if content.business_day.isLoaded}}
+    {{#each item in content.business_day.ts}}
+      <ul>
+        <li>{{item.key}}</li>
+      </ul>
+    {{/each}}
+  {{else}}
+    <h5>Loading</h5>
+  {{/if}}
 </div>

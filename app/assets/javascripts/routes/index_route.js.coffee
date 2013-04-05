@@ -32,3 +32,8 @@ App.IndexRoute = Em.Route.extend
     # ]
 
 
+  # {{#each item in content.business_day.rep_queue}}
+  #   <ul>
+  #     <li>{{item}}</li>
+  #   </ul>
+  # {{/each}}

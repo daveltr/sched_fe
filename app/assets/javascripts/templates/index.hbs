@@ -1,16 +1,15 @@
-<div>
-  {{!controller}}
-  <p>{{timezone}}</p>
-  <p>Date: {{event_date}}</p>
-</div>
-<hr/>
-{{view Em.Select contentBinding='App.tz_options' valueBinding='controller.content.timezone'}}
-{{view App.DatePickerField  valueBinding='event_date'}}
-<hr/>
-{{outlet}}
 <div class = "row-fluid">
   <div class="span3">
-    spn
+    <h5>Tour Options</h5>
+    {{view Em.Select contentBinding='App.tz_options' valueBinding='controller.content.timezone'}}
+    {{view App.DatePickerField  valueBinding='event_date'}}
+    <hr/>
+    <div>
+      {{!controller}}
+      <p>{{timezone}}</p>
+      <p>Date: {{event_date}}</p>
+    </div>
+    {{outlet}}
   </div>
   <div class="span3">
     {{view App.AccountView contentBinding="account"}}
