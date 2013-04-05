@@ -17,10 +17,9 @@ App.BusinessDay.reopenClass
         bd.set('ts', Em.A() )#App.SortedArray() )
         slots = Em.A()
         for k,v of bd.time_slots
-          console?.log(k)
           slots.push App.TimeSlot.create({key: k, data: v})
         slots.sort (a,b) ->
-          console?.log("#{a.key} vs #{b.key}")
+          # console?.log("#{a.key} vs #{b.key}")
           return parseInt(a.key) - parseInt(b.key) 
           # return a.key>b.key? 1 : (a.key<b.key ? -1 : 0); 
         bd.set('ts',slots)
@@ -34,7 +33,12 @@ App.Account = Em.Object.extend
   name: "daveCo"
 
 App.TimeSlot = Em.Object.extend
-  availabe_reps: []
+  availabe_reps: {} #[]
+  rep_queue: []
+  first_rep: ( ->
+    return @.get('data').available_reps["3"][0]
+    # console?.log(@.get('controller.content.business_day.rep_queue'))
+    ).property('data')
 
 App.RepQueue = Em.Object.extend
   rep_list: []

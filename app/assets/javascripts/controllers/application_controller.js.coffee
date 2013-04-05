@@ -3,33 +3,28 @@ App.ApplicationController = Ember.ArrayController.extend
 
 App.IndexController = Ember.ObjectController.extend
   content: []
+  selectTimeSlot: (ts) ->
+    sct = @.get('content.scheduled_tour')
+    acct = @.get('content.account')
+    #get the account product-line
+    sct.set('productline', '6')
+    #set the sched-date time
+    # sct.set('sched_dateBinding', Em.Binding.from('event_date'))
+    sct.set('sched_date', @.get('event_date'))
+    sct.set('sched_date_time', ts.data.id)
+    sct.set('timezone', @.get('content.timezone'))
+    
+    console?.log(@.get('content.business_day.rep_queue'))
+    console?.log(ts.get('data').available_reps )
+    #calculate the rep to choose
 
-# All we need to know to create a business_day object is 
-# the event_date which we're looking up
-# 
+
 App.BusinessDayController = Em.ObjectController.extend
   needs: ['index']
   content: []
+
   # event_dateBinding: 'controllers.index.content.event_date'
   # contentBinding: 'controllers.index.content.business_day'
-
-###
-Return an Object sorted by it's Key
-###
-App.sortObjectByKey = (obj) ->
-  keys = []
-  sorted_obj = {}
-  for key of obj
-    keys.push key  if obj.hasOwnProperty(key)
-  
-  # sort keys
-  keys.sort()
-  
-  # create new array based on Sorted Keys
-  jQuery.each keys, (i, key) ->
-    sorted_obj[key] = obj[key]
-
-  sorted_obj
 
 
 

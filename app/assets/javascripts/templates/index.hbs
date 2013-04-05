@@ -6,8 +6,10 @@
     <hr/>
     <div>
       {{!controller}}
-      <p>{{timezone}}</p>
-      <p>Date: {{event_date}}</p>
+      <h5>Scheduled Tour Info</h5>
+      <p>{{scheduled_tour.timezone}}</p>
+      <p>ST Date: {{scheduled_tour.sched_date}}</p>
+      <p>ST Time: {{scheduled_tour.sched_date_time}}</p>
     </div>
     {{outlet}}
   </div>

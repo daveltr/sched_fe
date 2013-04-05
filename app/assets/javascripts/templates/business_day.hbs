@@ -3,7 +3,7 @@
   {{#if content.business_day.isLoaded}}
     {{#each item in content.business_day.ts}}
       <ul>
-        <li>{{item.key}}</li>
+        <li>{{item.key}} : {{item.first_rep}} : <button {{action selectTimeSlot item}}>X</button></li>
       </ul>
     {{/each}}
   {{else}}

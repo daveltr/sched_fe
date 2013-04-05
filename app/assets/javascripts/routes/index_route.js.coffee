@@ -11,8 +11,11 @@ App.IndexRoute = Em.Route.extend
   setupController: (controller) ->
     sct = App.SchedTour.create()
     bd = App.BusinessDay.create()
+  
+    window.test = sct
     controller.set('account', App.Account.create() )
     controller.set('scheduled_tour', sct)
+    sct.set("schedDateBinding", Em.Binding.from('controller.content.event_date'))
     # controller.set('business_day', bd)
     
 

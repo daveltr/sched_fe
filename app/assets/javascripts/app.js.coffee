@@ -1,6 +1,7 @@
 #= require ./app/environment
 #= require ./app/store
 #= require ./app/router
+#= require ./app/util
 #= require_tree ./templates
 #= require_tree ./controllers
 #= require_tree ./models
