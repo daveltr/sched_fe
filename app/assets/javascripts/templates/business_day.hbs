@@ -2,9 +2,12 @@
   <h5>Business Day {{event_date}}</h5>
   {{#if content.business_day.isLoaded}}
     {{#each item in content.business_day.ts}}
-      <ul>
+      <ul class="unstyled">
         <li>
-          {{item.tz}} :: {{item.time_local}} : {{item.time_client}}: {{item.first_rep}} : <button {{action selectTimeSlot item}}>X</button>
+          <div class = "btn btn-block" {{action selectTimeSlot item}}>
+            <p>Client Time: {{item.time_client}}</p>
+            <p>Local Time: {{item.time_local}}</p>
+          </div>
         </li>
         {{!template 'time_slot' item}}
       </ul>

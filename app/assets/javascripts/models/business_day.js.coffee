@@ -2,12 +2,8 @@ App.BusinessDay = Em.Object.extend
   appointments: []
   time_slots: []
   isLoaded: false
+  parent: null
   tzBinding: 'parent.timezone'
-  # tz: ( ->
-  #   # window.bd = this 
-  #   console?.log('tz bd changed')
-  #   @.get('parent.timezone')
-  #   ).observes('parent.timezone')
 
 App.BusinessDay.reopenClass
   find: (event_date) ->
@@ -38,36 +34,3 @@ App.BusinessDay.reopenClass
     return bd
 
 
-App.Account = Em.Object.extend
-  name: "daveCo"
-
-App.TimeSlot = Em.Object.extend
-  availabe_reps: {} #[]
-  rep_queue: []
-  tzBinding: 'parent.tz'
-  time_utc: ( ->
-    return moment.utc(@.get('data').id)
-    ).property('data') 
-  time_local: ( ->
-    @.get('time_utc').local().format('h:mm:ss a')
-    ).property('data')
-  time_client: ( ->
-    d = @.get('time_utc')
-    dc = App.DateConversionService.create( { moment_utc: d, timezone: @.get('tz') }) #,  tz_city: "America/New_York"})
-    wt = dc.converMomentUtcToTimezoneByZone()
-    wt
-    ).property('tz')
-  first_rep: ( ->
-    return @.get('data').available_reps["3"][0]
-    # console?.log(@.get('controller.content.business_day.rep_queue'))
-    ).property('data')
-
-
-  # business_day: ( ->
-  #   v = @.get('event_date')
-  #   return null unless v?
-  #   bd = App.BusinessDay.find(v)  
-  #   # console?.log(@.get('controller'))
-  #   # bd.set('event_date', 'controller.event_date')
-  #   return bd
-  # ).property('event_date')

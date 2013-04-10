@@ -1,3 +1,11 @@
+App.Account = Em.Object.extend
+  name: "daveCo"
+
+
+
+
+
+#############
 App.RedditLink = Em.Object.extend
   title: ""
 

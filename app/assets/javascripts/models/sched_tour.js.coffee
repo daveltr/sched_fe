@@ -24,6 +24,5 @@ App.SchedTourData = Em.Object.extend
     return null unless v?
     bd = App.BusinessDay.find(v) 
     bd.set("parent", this) 
-    console?.log(bd.get("parent.timezone") ) #.get('timezone'))
     return bd
   ).property('event_date')
