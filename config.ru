@@ -5,6 +5,7 @@ require 'sprockets'
 require File.expand_path('../app', __FILE__)
 
 require 'handlebars_assets'
+require 'json' 
 
 HandlebarsAssets::Config.ember = true
 HandlebarsAssets::Config.path_prefix = 'javascripts/templates'

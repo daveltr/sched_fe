@@ -14,8 +14,8 @@ App.IndexController = Ember.ObjectController.extend
     sct.set('sched_date_time', ts.data.id)
     sct.set('timezone', @.get('content.timezone'))
     
-    console?.log(@.get('content.business_day.rep_queue'))
-    console?.log(ts.get('data').available_reps )
+    # console?.log(@.get('content.business_day.rep_queue'))
+    # console?.log(ts.get('data').available_reps )
     #calculate the rep to choose
 
 

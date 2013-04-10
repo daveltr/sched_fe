@@ -3,19 +3,27 @@ App.IndexRoute = Em.Route.extend
     console?.log("index route entered") 
   model: ->
     #get params
-    App.SchedTourData.create(
-      {account_id: 3674, order_id: 4094, 
-      event_date: moment.utc().format('YYYY-MM-DD')}
+    sctd = App.SchedTourData.create(
+      {account_id: 3674, order_id: 4094}
       )
+    sctd.set('event_date', moment.utc().format('YYYY-MM-DD') ) 
+    sctd
+
 
   setupController: (controller) ->
-    sct = App.SchedTour.create()
+    sct = App.SchedTour.create( )
     bd = App.BusinessDay.create()
-  
-    window.test = sct
-    controller.set('account', App.Account.create() )
+    ac = App.Account.create()
+    
     controller.set('scheduled_tour', sct)
-    sct.set("schedDateBinding", Em.Binding.from('controller.content.event_date'))
+  
+    controller.set('scheduled_tour.sched_date', '2013-04-20')
+    controller.set('scheduled_tour.sched_date_time', 'No Time Selected')
+
+    controller.set('timezone', @.get('scheduled_tour.timezone')) 
+
+
+
     # controller.set('business_day', bd)
     
 

@@ -16,3 +16,5 @@ App.sortObjectByKey = (obj) ->
 
   sorted_obj
 
+App.convertDateToUTC = (date) ->
+  new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds())
