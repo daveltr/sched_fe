@@ -1,0 +1,68 @@
+//==== Simple SCSS mixin to create CSS triangles
+//==== Example: @include css-triangle ("up", 10px, #fff);
+@mixin css-triangle ($direction: "down", $size: 20px, $color: #000) {
+  width: 0; 
+  height: 0;
+  border-left: $size solid #{setTriangleColor($direction, "left", $color)};
+  border-right: $size solid #{setTriangleColor($direction, "right", $color)};
+  border-bottom: $size solid #{setTriangleColor($direction, "bottom", $color)};
+  border-top: $size solid #{setTriangleColor($direction, "top", $color)};
+}
+ 
+//Utility function to return the relevant colour depending on what type of arrow it is
+@function setTriangleColor($direction, $side, $color) {
+ 
+  @if $direction == "left" and $side == "right" 
+  or  $direction == "right" and $side == "left" 
+  or $direction == "down" and $side == "top" 
+  or $direction == "up" and $side == "bottom" {
+    @return $color
+  } @else {
+    @return "transparent";
+  }
+ 
+}
+.triangle-down {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  @include css-triangle('down', 10px, #3e4551)
+}
+
+.sidebox {
+  background: #E4EEF7 none;
+  width: 220px;
+  border: 0px solid #000;
+  padding-bottom: 7px;
+  h5 {
+    margin: 0px;
+  }
+}
+.sidebox-header {
+  padding: 3px;
+  background-color: #3e4551;
+  color: #bcbec2;
+}
+.sidebox-bar {
+  position: relative;
+  margin-bottom: 10px;
+}
+.sidebox-body {
+  padding: 3px;
+
+}
+
+// .sidebox:hover {
+//   border-left: 3px solid #4183c4;
+// }
+
+// Github blue border item
+
+// .blue-border {
+//   position: absolute;
+//   top: 0;
+//   left: -1px;
+//   bottom: 0;
+//   width: 3px;
+//   background-color: #4183c4;
+// }
