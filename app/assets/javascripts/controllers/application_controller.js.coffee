@@ -3,24 +3,23 @@ App.ApplicationController = Ember.ArrayController.extend
 
 App.IndexController = Ember.ObjectController.extend
   content: []
-  selectTimeSlot: (ts) ->
+
+App.SchedTourController = Em.ObjectController.extend
+  content: []
+  selectTimeSlot: (ts) ->  
     sct = @.get('content.scheduled_tour')
     acct = @.get('content.account')
     #get the account product-line
     sct.set('productline', '6')
     #set the sched-date time
-    # sct.set('sched_dateBinding', Em.Binding.from('event_date'))
     sct.set('sched_date', @.get('event_date'))
     sct.set('sched_date_time', ts.data.id)
     sct.set('timezone', @.get('content.timezone'))
-    
-    # console?.log(@.get('content.business_day.rep_queue'))
-    # console?.log(ts.get('data').available_reps )
     #calculate the rep to choose
 
 
 App.BusinessDayController = Em.ObjectController.extend
-  needs: ['index']
+  # needs: ['index']
   content: []
 
   # event_dateBinding: 'controllers.index.content.event_date'

@@ -17,6 +17,7 @@ App.SchedTourData = Em.Object.extend
   timezoneBinding: 'scheduled_tour.timezone'
   account_id: null
   order_id: null
+  productLineId: 3
   scheduled_tour: App.SchedTour.create()
   account: App.Account.create()
   business_day: ( ->
