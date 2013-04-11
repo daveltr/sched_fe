@@ -1,3 +1,6 @@
-<li>
-  {{item.time_utc}} : {{item.first_rep}} : <button {{action selectTimeSlot item}}>X</button>
+<li class='timeslot'>
+  <div class = "btn btn-block" {{action selectTimeSlot item}}>
+    <p>Client Time: {{item.time_client}}</p>
+    <p>Local Time: {{item.time_local}}</p>
+  </div>
 </li>

@@ -1,17 +1,11 @@
 <div>
   <h5>Business Day {{event_date}}</h5>
   {{#if content.business_day.isLoaded}}
-    {{#each item in content.business_day.ts}}
-      <ul class="unstyled">
-        <li>
-          <div class = "btn btn-block" {{action selectTimeSlot item}}>
-            <p>Client Time: {{item.time_client}}</p>
-            <p>Local Time: {{item.time_local}}</p>
-          </div>
-        </li>
-        {{!template 'time_slot' item}}
-      </ul>
-    {{/each}}
+    <ul class="unstyled">
+      {{#each item in content.business_day.ts}}
+        {{template 'time_slot'}}
+      {{/each}}
+    </ul>
   {{else}}
     <h5>Loading</h5>
   {{/if}}

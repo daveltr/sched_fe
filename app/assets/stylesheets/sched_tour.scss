@@ -22,6 +22,10 @@
   }
  
 }
+.datepicker input {
+  width: 175px;
+
+}
 .triangle-down {
   position: absolute;
   top: 0;
@@ -30,8 +34,9 @@
 }
 
 .sidebox {
+  margin-top: 10px;
   background: #E4EEF7 none;
-  width: 220px;
+  // width: 220px;
   border: 0px solid #000;
   padding-bottom: 7px;
   h5 {
@@ -49,9 +54,12 @@
 }
 .sidebox-body {
   padding: 3px;
+  padding-left: 12px;
 
 }
-
+.timeslot p {
+  margin: 0px;
+}
 // .sidebox:hover {
 //   border-left: 3px solid #4183c4;
 // }

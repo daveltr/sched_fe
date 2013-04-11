@@ -5,16 +5,24 @@
     {{view App.DatePickerField  valueBinding='event_date'}}
     <hr/>
     <div>
-      {{!controller}}
-      <h5>Scheduled Tour Info</h5>
-      <p>{{scheduled_tour.timezone}}</p>
-      <p>ST Date: {{scheduled_tour.sched_date}}</p>
-      <p>ST Time: {{scheduled_tour.sched_date_time}}</p>
     </div>
     {{outlet}}
   </div>
-  <div class="span3">
+  <div class="span4">
     {{view App.AccountView contentBinding="account"}}
+    <div class="sidebox">
+      <div class="sidebox-header">
+        <h5>Scheduled Tour Info</h5>
+      </div>
+      <div class='sidebox-bar'>
+        <div class='triangle-down'></div>
+      </div>
+      <div class='sidebox-body'>
+        <p>TZ: {{scheduled_tour.timezone}}</p>
+        <p>ST Date: {{scheduled_tour.sched_date}}</p>
+        <p>ST Time: {{scheduled_tour.sched_date_time}}</p>
+      </div>
+    </div>
   </div>
   <div class="span4">
     <div>
