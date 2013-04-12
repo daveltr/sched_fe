@@ -1,9 +1,26 @@
 App.BusinessDay = Em.Object.extend
   appointments: []
   time_slots: []
+  ts: Em.A()
   isLoaded: false
   parent: null
   tzBinding: 'parent.timezone'
+  canSchedule: true 
+  processApiResponse: (json) ->
+    bd = @
+    bd.setProperties(json)
+    bd.set('ts', Em.A() )#App.SortedArray() )
+    slots = Em.A()
+    for k,v of bd.time_slots
+      a =  App.TimeSlot.createWithMixins({key: k, data: v, parent: bd})
+
+      slots.push a
+    slots.sort (a,b) ->
+      return parseInt(a.key) - parseInt(b.key) 
+    bd.set('ts',slots)
+    bd.set('isLoaded',true) 
+
+    return bd
 
 App.BusinessDay.reopenClass
   find: (event_date) ->
@@ -15,22 +32,10 @@ App.BusinessDay.reopenClass
       url: uri
       type: 'GET'
     ).then( (response) ->
-      bd.setProperties(response) #App.BusinessDay.create(response) 
-      ).then( (bd) ->
-        bd.set('ts', Em.A() )#App.SortedArray() )
-        slots = Em.A()
-        for k,v of bd.time_slots
-          slots.push App.TimeSlot.create({key: k, data: v, parent: bd})
-        slots.sort (a,b) ->
-          # console?.log("#{a.key} vs #{b.key}")
-          return parseInt(a.key) - parseInt(b.key) 
-          # return a.key>b.key? 1 : (a.key<b.key ? -1 : 0); 
-        window.slot= slots[0]
-        bd.set('ts',slots)
-        bd.set('isLoaded',true) 
+      #App.BusinessDay.create(response) 
+      bd.processApiResponse(response)
 
-        return bd
+      return bd
       )
     return bd
-
 

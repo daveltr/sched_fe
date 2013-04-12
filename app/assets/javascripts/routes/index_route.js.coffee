@@ -2,6 +2,11 @@ App.IndexRoute = Em.Route.extend
   enter: ->
     console?.log("index route entered") 
 
+  model: (params) ->
+    sctd = App.SchedTourData.create(
+      {account_id: 3674, order_id: 4094, date_override: '2013-05-01'}
+      )
+    
   # model: (params) ->
   #   sctd = App.SchedTourData.create(
   #     {account_id: 3674, order_id: 4094}

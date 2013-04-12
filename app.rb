@@ -24,6 +24,15 @@ EOF
     JSON.parse(st).to_json
   end
 
+  get 'api/account/:account/order/:order' do 
+    ac_id= params[:account]
+    or_id=params[:order].gsub('.json','')
+    st = <<EOF
+    
+EOF
+
+  end
+
   # get '/view-schedule/' do
   #   "hello"
   #   # content_type :json    

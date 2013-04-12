@@ -1,5 +1,5 @@
 <li class='timeslot'>
-  <div class = "btn btn-block" {{action selectTimeSlot item}}>
+  <div {{bindAttr class = ":btn :btn-block item.canSchedule::disabled" }} {{action selectTimeSlot item}}>
     <p>Client Time: {{item.time_client}}</p>
     <p>Local Time: {{item.time_local}}</p>
   </div>

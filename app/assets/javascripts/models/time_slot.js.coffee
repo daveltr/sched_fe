@@ -2,7 +2,9 @@ App.TimeSlot = Em.Object.extend
   availabe_reps: {} #[]
   rep_queue: []
   tzBinding: 'parent.tz'
+  canScheduleBinding: 'parent.canSchedule'
   time_utc: ( ->
+    # console?.log(@.get('canSchedule'))
     return moment.utc(@.get('data').id)
     ).property('data') 
   time_local: ( ->
