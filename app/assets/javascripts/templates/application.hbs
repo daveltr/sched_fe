@@ -1,4 +1,11 @@
 <div class="container-fluid">
+  {{#if App.IS_ADMIN}}
+    <div class="row-fluid">
+      <div class="alert alert-info">
+        Administrator
+      </div>
+    </div>
+  {{/if}}
   <div class="row-fluid">
     <div class="span2">
       Sidebar

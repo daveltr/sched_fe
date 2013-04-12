@@ -6,6 +6,7 @@ App.SchedTourRoute = Em.Route.extend
       account_id: model.account_id
       order_id: model.order_id
     }
+    
   model: (params) ->
     console?.log "model"
     ac_id = Ember.String.htmlSafe(params.account_id)
