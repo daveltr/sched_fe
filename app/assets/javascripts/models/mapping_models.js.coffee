@@ -1,20 +1,36 @@
+App.PrimaryContact = Em.Object.extend
+  contactId: 0
+  firstName: null
+  lastName: null
+  email_address: null
+  name: ( ->
+    return "#{firstName} #{lastName}"
+    ).property('firstName','lastName')
+
+App.Order = Em.Object.extend
+  orderId: 0
+  productLineId: 0
+  tours_scheduled: 1
+  owner: null
+  start_date: null
+  end_date: null
+  primaryContact: App.PrimaryContact.create()
 
 
+# #############
+# App.RedditLink = Em.Object.extend
+#   title: ""
 
-#############
-App.RedditLink = Em.Object.extend
-  title: ""
-
-App.RedditLink.reopenClass
-  findAll: (subreddit) ->
-    $.getJSON("http://www.reddit.com/r/" + subreddit + "/.json?jsonp=?").then( (response) ->
-      links = [];
-      response.data.children.forEach (child) ->
-        data = App.RedditLink.create(child.data)
-        links.push(data);
-        window.tester = data
-      return links
-    )
+# App.RedditLink.reopenClass
+#   findAll: (subreddit) ->
+#     $.getJSON("http://www.reddit.com/r/" + subreddit + "/.json?jsonp=?").then( (response) ->
+#       links = [];
+#       response.data.children.forEach (child) ->
+#         data = App.RedditLink.create(child.data)
+#         links.push(data);
+#         window.tester = data
+#       return links
+#     )
 
 
 # // Create our Application

@@ -11,6 +11,7 @@ window.App = Ember.Application.create
     "Hawaii",
     "Alaska" 
   ]
+  productLines: ["1","5","4","6"]
   ready: ->
     console?.log("app ready")
 

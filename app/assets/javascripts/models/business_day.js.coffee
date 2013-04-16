@@ -9,7 +9,7 @@ App.BusinessDay = Em.Object.extend
   processApiResponse: (json) ->
     bd = @
     bd.setProperties(json)
-    bd.set('ts', Em.A() )#App.SortedArray() )
+    bd.set('ts', Em.A() )
     slots = Em.A()
     for k,v of bd.time_slots
       a =  App.TimeSlot.createWithMixins({key: k, data: v, parent: bd})

@@ -33,6 +33,7 @@ EOF
   end
 
   get '/api/accounts/:account/orders/:order' do
+    content_type :json    
     ac_id= params[:account]
     or_id=params[:order].gsub('.json','')
     tours_sched_ct=1

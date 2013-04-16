@@ -1,11 +1,14 @@
 App.SchedTour = Em.Object.extend
+  id: null
   timezone: "Eastern Time (US & Canada)"
   sched_date: null
   sched_date_time: null
-  productline: null
+  productLineId: null
   rep_username: null
   notify: "Product Specialist"
-  account: null
+  account_id: null
+  order_id: null
+  isDuplicate: false
 
 App.SchedTour.reopenClass
   findOrCreate: (account_id, order_id) ->
@@ -15,11 +18,14 @@ App.SchedTour.reopenClass
 App.SchedTourData = Em.Object.extend
   event_dateBinding: 'scheduled_tour.sched_date'
   timezoneBinding: 'scheduled_tour.timezone'
+  isDuplicateBinding: 'scheduled_tour.isDuplicate'
+  productLineIdBinding: 'scheduled_tour.productLineId'
   account_id: null
-  order_id: null
-  productLineId: 3
-  scheduled_tour: App.SchedTour.create()
-  account: App.Account.create()
+  order_id: null  
+  scheduled_tour: null # App.SchedTour.create()
+  account: null #App.Account.create()
+  contact: null
+  telescriptId: null
   business_day: ( ->
     v = @.get('event_date')
     return null unless v?

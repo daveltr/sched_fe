@@ -1,15 +1,28 @@
-<div class="sidebox">
-  <div class="sidebox-header">
-    <h5>Account Details</h5>
+{{#unless view.content.isDuplicate}}
+  <div class="sidebox">
+    <div class="sidebox-header">
+      <h5>Account Details</h5>
+    </div>
+    <div class='sidebox-bar'>
+      <div class='triangle-down'></div>
+    </div>
+    <div class='sidebox-body'>
+      {{#if view.content.isLoaded}}
+        {{#if view.content.isError}}
+          <div class="alert alert-danger">
+            <p>Error: {{view.content.error}}</p>
+            <p>Account ID: {{view.content}}</p>
+            <p>Loaded: {{view.content.isLoaded}}</p>
+          </div> 
+        {{/if}}
+        <p>Account Name: {{view.content.name}}</p>
+        <p>Account ID: {{view.content.account_id}}</p>
+        <p>Order ID: {{view.content.order_id}}</p>
+        <p>Valid: {{view.content.validOrder}}</p>
+        <p>Previously Scheduled: {{view.content.previouslyScheduled}}</p>
+      {{else}}
+        Loading
+      {{/if}}
+    </div>
   </div>
-  <div class='sidebox-bar'>
-    <div class='triangle-down'></div>
-  </div>
-  <div class='sidebox-body'>
-    <p>Account Name: {{view.content.name}}</p>
-    <p>Account ID: {{view.content.account_id}}</p>
-    <p>Order ID: {{view.content.order_id}}</p>
-    <p>Valid: {{view.content.validOrder}}</p>
-    <p>Previously Scheduled: {{view.content.previouslyScheduled}}</p>
-  </div>
-</div>
+{{/unless}}
